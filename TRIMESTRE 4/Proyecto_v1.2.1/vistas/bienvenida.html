@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Principal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+  <style>
+    .menu-box {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 8px 4px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+      height: 200px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 40px; /* Espacio entre las cajas */
+    }
+
+    .menu-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .menu-title {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 4px;
+      background-color: #6c757d;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 4px;
+      background-color: #6c757d;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Menú Principal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Acerca de</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contacto</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center menu-title">Administra tu plataforma con facilidad</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="menu-box">
+          <h4>Facturas</h4>
+          <p>Administra tus facturas y registros de ventas.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="menu-box">
+          <h4>Perfiles</h4>
+          <p>Administra los perfiles de usuarios y configuraciones.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="menu-box">
+          <h4>Productos</h4>
+          <p>Administra tus productos y catálogos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+

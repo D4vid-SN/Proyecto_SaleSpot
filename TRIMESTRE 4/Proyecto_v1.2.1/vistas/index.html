@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Control y Registro de Ventas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+  <style>
+h1, h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  width: 70%;
+  height: 4px;
+  background-color: #6c757d;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  background-color: #6c757d;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="text-center mt-5">
+      <div>
+        <h1>SaleSpot</h1>
+        <img src="../Imagenes/logo1.png" alt="Logo">
+      </div><br><br>
+      <div>
+        <h2>Sistema de Control y Registro de Ventas</h2>
+      </div>
+      <div class="paragraph-container mt-4">
+        <p>Este software brinda a los usuarios la capacidad de registrar y monitorear las ventas de productos o servicios de manera rápida y precisa. Permite ingresar información relevante, como la descripción del producto, el precio, la cantidad vendida y los detalles del cliente. Además, ofrece la posibilidad de generar facturas o recibos automáticamente, lo que simplifica el proceso de facturación.</p>
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-primary mr-2" onclick="window.location.href='Login.html'">Ingresar</button>
+        <button class="btn btn-primary" onclick="window.location.href='formulario.html'">Registrar</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

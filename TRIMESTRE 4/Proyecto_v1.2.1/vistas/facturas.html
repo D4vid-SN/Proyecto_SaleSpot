@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lux/bootstrap.min.css">
+  <style>
+    .registro {
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+
+    .base_datos {
+      border: 1px solid #dee2e6;
+      border-radius: 4px;
+      padding: 20px;
+      margin-bottom: 20px;
+      margin-bottom: 40px; /* Agrega margen inferior */
+    }
+
+    .container {
+      margin-top: 20px;
+    }
+
+    h2 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 40px;
+      text-align: center;
+      text-transform: uppercase;
+      position: relative;
+      text-align: center;
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 4px;
+      background-color: #6c757d;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 4px;
+      background-color: #6c757d;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand" href="#">Facturas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Regresar</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="fondo">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="registro">
+            <div class="titulo_ventas">
+              <h2>Registro de ventas</h2>
+            </div>
+            <div class="foto">
+              <img src="imagenes/venta.png" alt="">
+            </div>
+            <div class="for">
+              <form class="formulario" action="">
+                <div class="form-group">
+                  <label for="tipoProducto">Tipo de producto</label>
+                  <select class="form-control" id="tipoProducto">
+                    <option value="Bolsa">Bolsa</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="nombreCliente">Nombre del cliente</label>
+                  <input type="text" class="form-control" id="nombreCliente">
+                </div>
+                <div class="form-group">
+                  <label for="tipoDocumento">Tipo de documento</label>
+                  <select class="form-control" id="tipoDocumento">
+                    <option value="Cedula">Cédula</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="numeroDocumento">Número de documento</label>
+                  <input type="number" class="form-control" id="numeroDocumento">
+                </div>
+                <div class="form-group">
+                  <label for="fechaPedido">Fecha del pedido</label>
+                  <input type="date" class="form-control" id="fechaPedido">
+                </div>
+                <div class="form-group">
+                  <label for="valorPedido">Valor del pedido</label>
+                  <input type="text" class="form-control" id="valorPedido">
+                </div>
+                <div class="form-group form-check">
+                  <input type="checkbox" class="form-check-input" id="confirmar">
+                  <label class="form-check-label" for="confirmar">Confirmar</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Registrar</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="base_datos">
+            <div class="barra">
+              <h2>VENTAS</h2>
+              <input id="barra_b" type="number" class="form-control" placeholder="Código del registro">
+            </div>
+            <div class="tabla">
+              <table class="table table-bordered">
+                <caption>Registro</caption>
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>9</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>10</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                  <tr>
+                    <td>11</td>
+                    <td>7/04/2023</td>
+                    <td>21</td>
+                    <td>10000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
