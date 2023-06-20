@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registro de Productos Plásticos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: white;
+      color: black;
+    }
+    .container {
+      background-color: white;
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-top: 50px;
+    }
+    .btn-primary {
+      background-color: #333;
+      border-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Registro de Productos Plásticos</h1>
+    <form>
+      <div class="form-group">
+        <label for="nombre">Nombre del producto:</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre del producto">
+      </div>
+      <div class="form-group">
+        <label for="descripcion">Descripción:</label>
+        <textarea class="form-control" id="descripcion" rows="3" placeholder="Ingrese una descripción del producto"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio:</label>
+        <input type="number" class="form-control" id="precio" placeholder="Ingrese el precio del producto">
+      </div>
+      <div class="form-group">
+        <label for="cantidad">Cantidad:</label>
+        <input type="number" class="form-control" id="cantidad" placeholder="Ingrese la cantidad disponible">
+      </div>
+      <button type="submit" class="btn btn-primary">Registrar Producto</button>
+    </form>
+  </div>
+</body>
+</html>
