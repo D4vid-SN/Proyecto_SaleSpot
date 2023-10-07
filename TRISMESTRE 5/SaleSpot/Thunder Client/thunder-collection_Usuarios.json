@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Usuarios",
+    "dateExported": "2023-10-07T19:08:32.618Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a27479e5-db56-46b0-a29e-e83f9ad6eaaf",
+            "colId": "a457b762-ae67-4cb2-9ecc-ca1c78419514",
+            "containerId": "",
+            "name": "Agregar Usuario",
+            "url": "http://localhost:3000/usuarios",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-09-10T20:23:15.847Z",
+            "modified": "2023-09-27T17:14:32.170Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"tdoc_user\": \"CC\",\n  \"id_user\": 1,\n  \"nombre_1\": \"Juan\",\n  \"nombre_2\": \"Pablo\",\n  \"apellido_1\": \"Gomez\",\n  \"apellido_2\": \"Lopez\",\n  \"direccion\": \"Calle 123\",\n  \"rol\": 1, \n  \"estado\": true\n}\n\n\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "14d5c5a5-b365-427c-a172-f570665cc0c0",
+            "colId": "a457b762-ae67-4cb2-9ecc-ca1c78419514",
+            "containerId": "",
+            "name": "Consultar Usuario",
+            "url": "http://localhost:3000/usuarios",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-09-10T20:23:41.009Z",
+            "modified": "2023-09-27T15:55:37.669Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "60aa3d40-94e5-4199-9e08-5a0ee40dd000",
+            "colId": "a457b762-ae67-4cb2-9ecc-ca1c78419514",
+            "containerId": "",
+            "name": "Actualizar Usuario",
+            "url": "http://localhost:3000/usuarios/TI/123",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-09-10T20:23:44.435Z",
+            "modified": "2023-09-27T15:54:51.091Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre_1\": \"Juan\",\n  \"nombre_2\": \"Pablo\",\n  \"apellido_1\": \"Gomez\",\n  \"apellido_2\": \"Lopez\",\n  \"direccion\": \"Calle 123\",\n  \"rol\": 2, \n  \"estado\": false\n}\n\n\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "a1feda5a-13c3-4354-bb8c-811d3dceb064",
+            "colId": "a457b762-ae67-4cb2-9ecc-ca1c78419514",
+            "containerId": "",
+            "name": "Eliminar Usuario",
+            "url": "http://localhost:3000/usuarios",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2023-09-10T20:23:46.523Z",
+            "modified": "2023-09-27T15:55:54.517Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
