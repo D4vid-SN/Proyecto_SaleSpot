@@ -52,6 +52,42 @@ export class BackendService {
     const url = `${this.baseUrl}/usuarios/${tdoc_user}/${id_user}`;
     return this.http.delete(url);
   }
+
+  obtenerTiposProducto(): Observable<any[]> {
+    const url = `${this.baseUrl}/tipoProducto`;
+    return this.http.get<any[]>(url);
+  }
+
+  registrarProducto(nuevoProducto: any): Observable<any> {
+    const url = `${this.baseUrl}/producto`;
+    return this.http.post(url, nuevoProducto);
+  }
+
+  obtenerProductos(): Observable<any[]> {
+    const url = `${this.baseUrl}/producto`;
+    return this.http.get<any[]>(url);
+  }
+
+  obtenerTipoProductoPorId(id_tipo_prod: number): Observable<any> {
+    const url = `${this.baseUrl}/tipoProducto/${id_tipo_prod}`;
+    return this.http.get(url);
+  }
+
+  actualizarProducto(id_prod: number, productoDatos: any) {
+    const url = `${this.baseUrl}/producto/${id_prod}`; 
+    return this.http.put(url, productoDatos);
+  }
+
+  obtenerProductoPorId(id_prod: number) {
+    const url = `${this.baseUrl}/producto/${id_prod}`; 
+    return this.http.get(url);
+  }
+
+  eliminarProducto(id_prod: number) {
+    const url = `${this.baseUrl}/producto/${id_prod}`; 
+    return this.http.delete(url);
+  }
+  
   
 
 

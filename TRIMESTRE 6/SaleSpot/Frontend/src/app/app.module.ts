@@ -14,6 +14,11 @@ import { RegistroComponent } from './registro/registro.component';
 import { ConsultarComponent } from './consultar/consultar.component';
 import { EditarComponent } from './editar/editar.component';
 import { EliminarComponent } from './eliminar/eliminar.component';
+import { RegistrarProductoComponent } from './registrar-producto/registrar-producto.component';
+import { ProductosComponent } from './productos/productos.component';
+import { ConsultarProductoComponent } from './consultar-producto/consultar-producto.component';
+import { EditarProductoComponent } from './editar-producto/editar-producto.component';
+import { EliminarProductoComponent } from './eliminar-producto/eliminar-producto.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { EliminarComponent } from './eliminar/eliminar.component';
     RegistroComponent,
     ConsultarComponent,
     EditarComponent,
-    EliminarComponent
+    EliminarComponent,
+    RegistrarProductoComponent,
+    ProductosComponent,
+    ConsultarProductoComponent,
+    EditarProductoComponent,
+    EliminarProductoComponent
   ],
   imports: [
     BrowserModule,

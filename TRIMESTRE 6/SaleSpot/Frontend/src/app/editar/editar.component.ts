@@ -43,6 +43,7 @@ export class EditarComponent implements OnInit {
       this.backendService.consultarUsuario(this.tdoc_user, this.id_user).subscribe(
         (response: any) => {
           this.usuario = response;
+          this.usuario.estado = !!this.usuario.estado;
         },
         error => {
           console.error('Error al obtener la información del usuario', error);

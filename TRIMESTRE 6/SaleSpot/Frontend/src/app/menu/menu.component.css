@@ -56,3 +56,6 @@
     border-radius: 2px;
   }
   
+  .custom-link {
+    text-decoration: none; 
+}
