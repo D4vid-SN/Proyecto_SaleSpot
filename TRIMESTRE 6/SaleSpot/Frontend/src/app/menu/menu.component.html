@@ -7,11 +7,11 @@
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="#">Acerca de</a>
+                <a class="nav-link" routerLink="#">Acerca de</a>
             </li>
             <li class="nav-item">
                 <!-- Enlace de Cerrar Sesión -->
-                <a class="nav-link" href="/logout">Cerrar Sesión</a>
+                <a class="nav-link" routerLink="/logout">Cerrar Sesión</a>
             </li>
         </ul>
     </div>
@@ -24,27 +24,22 @@
     </div>
     <div class="row">
         <div class="col-md-4">
+            <div class="menu-box" routerLink="/usuarios">
+                <h4>Usuarios</h4>
+               <p>Administra los perfiles de usuarios y configuraciones.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="menu-box" routerLink="/ventas">
+                <h4>Ventas</h4>
+                <p>Administra y registra con facilidad tus ventas.</p>
+            </div>
+        </div>
+        <div class="col-md-4" routerLink="/productos">
             <div class="menu-box">
-                <h4>Facturas</h4>
-                <p>Administra tus facturas y registros de ventas.</p>
+                <h4>Productos</h4>
+                <p>Administra tus productos y catálogos.</p>
             </div>
-        </div>
-        <div class="col-md-4">
-            <a href="/usuarios" class="custom-link">
-                <div class="menu-box">
-                    <h4>Usuarios</h4>
-                    <p>Administra los perfiles de usuarios y configuraciones.</p>
-            </div>
-            </a>
-        </div>
-        
-        <div class="col-md-4">
-            <a href="productos" class="custom-link">
-                <div class="menu-box">
-                    <h4>Productos</h4>
-                    <p>Administra tus productos y catálogos.</p>
-                </div>
-            </a>
         </div>
     </div>
   </div>

@@ -26,13 +26,10 @@ const tipoProductoRoutes = require('./routes/tipoProducto');
 app.use('/tipoProducto', tipoProductoRoutes);
 
 const productoRoutes = require('./routes/producto');
-app.use('/producto', productoRoutes)
+app.use('/producto', productoRoutes);
 
-const facturaRouter = require('./routes/factura');
-app.use('/factura', facturaRouter);
-
-const facturaProductoRouter = require('./routes/facturaProducto');
-app.use('/factura-producto', facturaProductoRouter);
+const ventasRouter = require('./routes/ventas');
+app.use('/ventas', ventasRouter);
 
 const PORT = process.env.PORT || 3000;
 

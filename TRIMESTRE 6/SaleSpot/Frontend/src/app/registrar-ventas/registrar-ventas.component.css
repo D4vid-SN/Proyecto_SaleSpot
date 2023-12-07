@@ -1,0 +1,12 @@
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .center-form .col-md-6 {
+    max-width: 400px; /* Ajusta según sea necesario */
+    width: 100%;
+  }
+  

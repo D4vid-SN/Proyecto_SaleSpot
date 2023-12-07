@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <span class="navbar-brand">Productos</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/menu">Menú Principal</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+<div class="row">
+    <div class="col-md-3" *ngFor="let venta of ventas">
+      <div class="profile-card">
+        <h4>Venta</h4>
+        <h5>Fecha: {{ venta.fecha_venta }}</h5>
+        <p>Subtotal: {{ venta.subtotal }}</p>
+        <p>IVA: {{ venta.iva }}</p>
+        <p>Total: {{ venta.total_venta }}</p>
+        <!-- Agrega más campos según sea necesario -->
+  
+        <div class="btn-group" role="group">
+          <!-- Agrega enlaces para editar y eliminar ventas si es necesario -->
+          <!-- <a [routerLink]="['/editarVenta', venta.n_venta]" class="btn btn-primary btn-sm">Editar</a>
+          <a [routerLink]="['/eliminarVenta', venta.n_venta]" class="btn btn-danger btn-sm">Eliminar</a> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  

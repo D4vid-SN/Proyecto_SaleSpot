@@ -23,25 +23,37 @@
               <label for="id_user">Número de Identificación:</label>
               <input type="number" class="form-control" id="id_user" name="id_user" [(ngModel)]="nuevoUsuario.id_user" required>
             </div>
-            <div class="form-group">
-              <label for="nombre_1">Primer Nombre:</label>
-              <input type="text" class="form-control" id="nombre_1" name="nombre_1" [(ngModel)]="nuevoUsuario.nombre_1" required>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="nombre_1">Primer Nombre:</label>
+                  <input type="text" class="form-control" id="nombre_1" name="nombre_1" [(ngModel)]="nuevoUsuario.nombre_1" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="nombre_2">Segundo Nombre:</label>
+                  <input type="text" class="form-control" id="nombre_2" name="nombre_2" [(ngModel)]="nuevoUsuario.nombre_2">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for="apellido_1">Primer Apellido:</label>
+                  <input type="text" class="form-control" id="apellido_1" name="apellido_1" [(ngModel)]="nuevoUsuario.apellido_1" required>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for="apellido_2">Segundo Apellido:</label>
+                  <input type="text" class="form-control" id="apellido_2" name="apellido_2" [(ngModel)]="nuevoUsuario.apellido_2">
+                </div>
+              </div>
             </div>
             <div class="form-group">
-              <label for="nombre_2">Segundo Nombre:</label>
-              <input type="text" class="form-control" id="nombre_2" name="nombre_2" [(ngModel)]="nuevoUsuario.nombre_2">
-            </div>
-            <div class="form-group">
-              <label for="apellido_1">Primer Apellido:</label>
-              <input type="text" class="form-control" id="apellido_1" name="apellido_1" [(ngModel)]="nuevoUsuario.apellido_1" required>
-            </div>
-            <div class="form-group">
-              <label for="apellido_2">Segundo Apellido:</label>
-              <input type="text" class="form-control" id="apellido_2" name="apellido_2" [(ngModel)]="nuevoUsuario.apellido_2">
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label> 
-              <input type="email" class="form-control" id="email" name="email" [(ngModel)]="nuevoUsuario.email" required>
+              <label for="direccion">Dirección:</label>
+              <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="nuevoUsuario.direccion" required>
             </div>
             <div class="form-group">
               <label for="rol">Rol:</label>
@@ -61,11 +73,40 @@
         </div>
       </div>
     </div>
+    <div class="col-md-6">
+      <div class="card">
+          <div class="card-body">
+              <h2 class="card-title text-center">Previsualización</h2>
+              <div class="table-responsive"> 
+                  <table class="table table-bordered table-striped"> 
+                      <tbody>
+                          <tr>
+                              <th style="width: 40%;">Nombres</th> 
+                              <td>{{nuevoUsuario.nombre_1}} {{nuevoUsuario.nombre_2}}</td>
+                          </tr>
+                          <tr>
+                              <th style="width: 40%;">Apellidos</th>
+                              <td>{{nuevoUsuario.apellido_1}} {{nuevoUsuario.apellido_2}}</td>
+                          </tr>
+                          <tr>
+                              <th style="width: 40%;">Tipo de Documento</th>
+                              <td>{{nuevoUsuario.tdoc_user}}</td>
+                          </tr>
+                          <tr>
+                              <th style="width: 40%;">Número de Documento</th>
+                              <td>{{nuevoUsuario.id_user}}</td>
+                          </tr>
+                          <tr>
+                              <th style="width: 40%;">Dirección</th>
+                              <td>{{nuevoUsuario.direccion}}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
   </div>
 </div>
 
 
-  
-  
-  
   

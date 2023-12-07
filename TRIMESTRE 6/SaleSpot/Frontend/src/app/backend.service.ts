@@ -87,10 +87,17 @@ export class BackendService {
     const url = `${this.baseUrl}/producto/${id_prod}`; 
     return this.http.delete(url);
   }
-  
-  
 
+  registrarVenta(nuevaVenta: any): Observable<any> {
+    const url = `${this.baseUrl}/ventas`;
+    return this.http.post(url, nuevaVenta);
+  }
 
+  obtenerVentas(): Observable<any[]> {
+    const url = `${this.baseUrl}/ventas`;
+    return this.http.get<any[]>(url);
+  }
+  
 }
 
 
