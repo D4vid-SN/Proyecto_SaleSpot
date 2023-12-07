@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
+import axios from 'axios';
 
 const Login = () => {
   const [documentoType, setDocumentoType] = useState('Cédula');
   const [numeroDocumento, setNumeroDocumento] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    console.log('Tipo de documento:', documentoType);
-    console.log('Número de documento:', numeroDocumento);
-    console.log('Contraseña:', password);
-  };
+  const handleLogin = async () => {
+    try {
+      const requestData = {
+        tdoc_user: documentoType,
+        id_user: numeroDocumento,
+      };
 
+      const response = await axios.post('http://localhost:3000', requestData);
+      console.log('Respuesta del servidor:', response.data);
+
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+    }
+  };
   return (
     <View style={styles.container}>
       <View style={styles.formContainer}>

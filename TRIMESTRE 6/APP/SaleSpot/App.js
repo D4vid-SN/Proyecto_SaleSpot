@@ -10,7 +10,6 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Inicio">
-        <Stack.Screen name="Inicio" component={Inicio} />
         <Stack.Screen name="Login" component={Login} />
       </Stack.Navigator>
     </NavigationContainer>
