@@ -28,16 +28,12 @@
   
             <div class="form-row">
             <!-- Producto -->
-          <!-- Producto -->
-          <div class="form-group col-md-6">
-            <label for="id_prod">Tipo de producto</label>
-            <select class="form-control" id="id_prod" name="id_prod" [(ngModel)]="selectedProductId" (change)="cargarDescripcionTipoProducto()" required>
-              <option *ngFor="let producto of productos" [value]="producto.id_prod">{{ producto.desc_tipo_prod || 'Seleccione un tipo' }}</option>
-            </select>
-          </div>
-
-            
-
+            <div class="form-group col-md-6">
+              <label for="id_prod">Tipo de producto</label>
+              <select class="form-control" id="id_prod" name="id_prod" [(ngModel)]="selectedProductId" (change)="cargarDescripcionTipoProducto()" required>
+                <option *ngFor="let producto of productos" [value]="producto.id_prod">{{ producto.desc_prod || 'Seleccione un tipo' }}</option>
+              </select>
+            </div>
 
               <div class="form-group col-md-6">
                 <label for="cant_prod">Cantidad de Productos:</label>

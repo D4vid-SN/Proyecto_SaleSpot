@@ -64,12 +64,18 @@ router.post('/', (req, res) => {
     (err, result) => {
       if (err) {
         console.error(err);
-        res.status(500).json({ error: 'Error al crear la venta' });
+        res.status(500).json({ error: 'Error al crear la venta', specificError: err.message });
         return;
       }
-      res.status(201).json({ message: 'Venta creada con éxito' });
+  
+      if (result.affectedRows === 1) {
+        res.status(201).json({ message: 'Venta creada con éxito' });
+      } else {
+        res.status(500).json({ error: 'No se pudo crear la venta' });
+      }
     }
   );
+  
 });
 
 // Actualizar una venta por su n_venta

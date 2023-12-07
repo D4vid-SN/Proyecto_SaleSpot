@@ -22,7 +22,7 @@ CREATE TABLE usuario (
   nombre_2 VARCHAR(255),
   apellido_1 VARCHAR(255) NOT NULL,
   apellido_2 VARCHAR(255),
-  direccion VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
   rol INT,
   estado BOOLEAN,
   pass_user VARCHAR(255),

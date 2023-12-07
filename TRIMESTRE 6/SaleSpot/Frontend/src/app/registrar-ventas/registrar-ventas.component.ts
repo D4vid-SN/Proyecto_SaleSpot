@@ -59,33 +59,36 @@ export class RegistrarVentaComponent implements OnInit {
     );
   }
   cargarDescripcionTipoProducto() {
-    // Asegurarse de que selectedProductId no es nulo o indefinido
     if (this.selectedProductId !== null && this.selectedProductId !== undefined) {
-      // Buscar el tipo de producto por ID en la lista de productos
-      const selectedProduct = this.productos.find(producto => producto.id_prod === this.selectedProductId);
-
-      if (selectedProduct) {
-        // Si el producto seleccionado se encuentra, cargar su descripción
-        this.tipoProductoSeleccionado = selectedProduct;
-        this.nuevaVenta.id_prod = this.selectedProductId; // Asignar el ID del producto a la propiedad nuevaVenta
-      }
+      // Solo almacena el ID del producto, no el objeto completo
+      this.nuevaVenta.id_prod = this.selectedProductId;
+    } else {
+      this.nuevaVenta.id_prod = null;
     }
   }
   
-
   registrarVenta() {
-    // Verificar que el tipoProductoSeleccionado está definido y tiene un ID
-    if (this.tipoProductoSeleccionado && this.tipoProductoSeleccionado.id_prod) {
-      // Asignar el ID del producto al objeto nuevaVenta
-      this.nuevaVenta.id_prod = this.tipoProductoSeleccionado.id_prod;
+    if (this.nuevaVenta.id_prod) {
+      // Aquí debes asegurarte de que solo estás enviando el ID del producto, no el objeto completo
+      // En este ejemplo, solo enviamos el ID del producto al backend
+      const datosVenta = {
+        fecha_venta: this.nuevaVenta.fecha_venta,
+        tdoc_user: this.nuevaVenta.tdoc_user,
+        id_user: this.nuevaVenta.id_user,
+        id_prod: this.nuevaVenta.id_prod,
+        cant_prod: this.nuevaVenta.cant_prod,
+        subtotal: this.nuevaVenta.subtotal,
+        iva: this.nuevaVenta.iva,
+        total_venta: this.nuevaVenta.total_venta
+      };
   
-      // Enviar la solicitud al backend
-      this.backendService.registrarVenta(this.nuevaVenta)
+      console.log('Datos enviados al backend:', datosVenta);
+  
+      this.backendService.registrarVenta(datosVenta)
         .subscribe(
           (response) => {
             this.mensajeExito = response.message;
             this.mensajeError = '';
-            // Limpiar el formulario después del registro exitoso
             this.nuevaVenta = {
               fecha_venta: '',
               tdoc_user: '',
@@ -104,11 +107,11 @@ export class RegistrarVentaComponent implements OnInit {
           }
         );
     } else {
-      // Manejar el caso en el que el tipoProductoSeleccionado no está definido o no tiene un ID
       this.mensajeError = 'Seleccione un tipo de producto válido';
       this.mensajeExito = '';
     }
   }
+  
 
   formularioValido(): boolean {
     // Implementa tu lógica de validación según sea necesario

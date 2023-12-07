@@ -12,12 +12,27 @@ export class ListarVentasComponent implements OnInit {
   constructor(private backendService: BackendService) {}
 
   ngOnInit(): void {
-    this.obtenerVentas();
+    this.obtenerVentasConTipoProducto();
   }
 
-  obtenerVentas(): void {
+  obtenerVentasConTipoProducto(): void {
+    // Obtener todas las ventas
     this.backendService.obtenerVentas().subscribe(
       (ventas: any[]) => {
+        // Para cada venta, obtener el nombre del tipo de producto
+        ventas.forEach(venta => {
+          this.backendService.obtenerTipoProductoPorId(venta.id_tipo_prod).subscribe(
+            (tipoProducto: any) => {
+              // Asignar el nombre del tipo de producto a la venta
+              venta.tipoProductoNombre = tipoProducto ? tipoProducto.tipo_prod : 'Desconocido';
+            },
+            (error) => {
+              console.error('Error al obtener el tipo de producto:', error);
+            }
+          );
+        });
+
+        // Asignar las ventas con nombres de tipo de producto al arreglo
         this.ventas = ventas;
       },
       (error) => {
