@@ -1,3 +1,274 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Usuario:
+ *       type: object
+ *       properties:
+ *         tdoc_user:
+ *           type: string
+ *           description: Tipo de documento del usuario.
+ *         id_user:
+ *           type: integer  # Cambiado a tipo de dato numérico
+ *           description: Identificación del usuario.
+ *         nombre_1:
+ *           type: string
+ *           description: Primer nombre del usuario.
+ *         nombre_2:
+ *           type: string
+ *           description: Segundo nombre del usuario.
+ *         apellido_1:
+ *           type: string
+ *           description: Primer apellido del usuario.
+ *         apellido_2:
+ *           type: string
+ *           description: Segundo apellido del usuario.
+ *         email:
+ *           type: string
+ *           format: email
+ *           description: Dirección de correo electrónico del usuario.
+ *         rol:
+ *           type: string
+ *           enum: [administrador, empleado]
+ *           description: Rol del usuario.
+ *         estado:
+ *           type: boolean
+ *           description: Estado del usuario.
+ *         pass_user:
+ *           type: string
+ *           description: Contraseña generada automáticamente para el usuario.
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Usuarios
+ *   description: Operaciones relacionadas con usuarios
+ */
+
+/**
+ * @swagger
+ * /usuarios:
+ *   post:
+ *     summary: Crear un nuevo usuario
+ *     tags: [Usuarios]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Usuario'
+ *     responses:
+ *       '201':
+ *         description: Usuario creado con éxito
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Usuario creado con éxito
+ *               password: [contraseña generada automáticamente]
+ *       '400':
+ *         description: Campos obligatorios faltantes o mal formato
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Todos los campos obligatorios deben estar presentes, y el campo estado debe ser booleano
+ *       '404':
+ *         description: Tipo de documento, rol o usuario no encontrados
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Tipo de documento no encontrado
+ */
+
+/**
+ * @swagger
+ * /usuarios:
+ *   get:
+ *     summary: Obtener todos los usuarios
+ *     tags:
+ *       - Usuarios
+ *     responses:
+ *       '200':
+ *         description: Éxito. Devuelve una lista de todos los usuarios.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Usuario'
+ *       '404':
+ *         description: No se encontraron usuarios.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: No se encontraron usuarios
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al obtener los usuarios
+ */
+
+/**
+ * @swagger
+ * /usuarios:
+ *   delete:
+ *     summary: Eliminar todos los usuarios
+ *     tags:
+ *       - Usuarios
+ *     responses:
+ *       '200':
+ *         description: Éxito. Todos los usuarios han sido eliminados con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Todos los usuarios han sido eliminados con éxito
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al eliminar todos los usuarios
+ */
+
+/**
+ * @swagger
+ * /usuarios/{tdoc_user}/{id_user}:
+ *   get:
+ *     summary: Consultar un usuario por tipo de documento y ID
+ *     tags:
+ *       - Usuarios
+ *     parameters:
+ *       - in: path
+ *         name: tdoc_user
+ *         required: true
+ *         description: Tipo de documento del usuario.
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: id_user
+ *         required: true
+ *         description: Identificación del usuario.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Éxito. Devuelve el usuario solicitado.
+ *         content:
+ *           application/json:
+ *             $ref: '#/components/schemas/Usuario'
+ *       '404':
+ *         description: Usuario no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Usuario no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al obtener el usuario
+ */
+
+/**
+ * @swagger
+ * /usuarios/{tdoc_user}/{id_user}:
+ *   put:
+ *     summary: Actualizar un usuario
+ *     tags:
+ *       - Usuarios
+ *     parameters:
+ *       - in: path
+ *         name: tdoc_user
+ *         required: true
+ *         description: Tipo de documento del usuario.
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: id_user
+ *         required: true
+ *         description: Identificación del usuario.
+ *         schema:
+ *           type: integer  # Cambiado a tipo de dato numérico
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Usuario'
+ *     responses:
+ *       '200':
+ *         description: Éxito. Usuario actualizado con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Usuario actualizado con éxito
+ *       '400':
+ *         description: Campos obligatorios faltantes o mal formato.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Los campos obligatorios deben estar presentes y el campo estado debe ser booleano
+ *       '404':
+ *         description: Usuario no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Usuario no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al actualizar el usuario
+ */
+
+
+/**
+ * @swagger
+ * /usuarios/{tdoc_user}/{id_user}:
+ *   delete:
+ *     summary: Eliminar un usuario
+ *     tags:
+ *       - Usuarios
+ *     parameters:
+ *       - in: path
+ *         name: tdoc_user
+ *         required: true
+ *         description: Tipo de documento del usuario.
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: id_user
+ *         required: true
+ *         description: Identificación del usuario.
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       '200':
+ *         description: Éxito. Usuario eliminado con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Usuario eliminado con éxito
+ *       '404':
+ *         description: Usuario no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Usuario no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al eliminar el usuario
+ */
+
+
+
 const express = require('express');
 const router = express.Router();
 const connection = require('../db');
@@ -210,4 +481,5 @@ router.delete('/', (req, res) => {
 });
 
 module.exports = router;
+
 

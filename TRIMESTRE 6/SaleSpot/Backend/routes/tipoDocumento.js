@@ -1,3 +1,222 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     TipoDocumento:
+ *       type: object
+ *       properties:
+ *         tdoc:
+ *           type: string
+ *           description: Código del tipo de documento.
+ *         desc_tdoc:
+ *           type: string
+ *           description: Descripción del tipo de documento.
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Tipos de Documento
+ *   description: Operaciones relacionadas con tipos de documento
+ */
+
+/**
+ * @swagger
+ * /tipos-documento:
+ *   post:
+ *     summary: Crear un nuevo tipo de documento
+ *     tags: [Tipos de Documento]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/TipoDocumento'
+ *     responses:
+ *       '201':
+ *         description: Tipo de documento creado con éxito
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Tipo de documento creado con éxito
+ *       '400':
+ *         description: Campos obligatorios faltantes o mal formato
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Todos los campos son obligatorios
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al crear el tipo de documento
+ */
+
+/**
+ * @swagger
+ * /tipos-documento/{tdoc}:
+ *   get:
+ *     summary: Consultar un tipo de documento por su código (tdoc)
+ *     tags: [Tipos de Documento]
+ *     parameters:
+ *       - in: path
+ *         name: tdoc
+ *         required: true
+ *         description: Código del tipo de documento.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Éxito. Devuelve el tipo de documento solicitado.
+ *         content:
+ *           application/json:
+ *             $ref: '#/components/schemas/TipoDocumento'
+ *       '404':
+ *         description: Tipo de documento no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Tipo de documento no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al obtener el tipo de documento
+ */
+
+/**
+ * @swagger
+ * /tipos-documento:
+ *   get:
+ *     summary: Obtener todos los tipos de documento
+ *     tags: [Tipos de Documento]
+ *     responses:
+ *       '200':
+ *         description: Éxito. Devuelve una lista de todos los tipos de documento.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/TipoDocumento'
+ *       '404':
+ *         description: No se encontraron tipos de documento.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: No se encontraron tipos de documento
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al obtener los tipos de documento
+ */
+
+/**
+ * @swagger
+ * /tipos-documento/{tdoc}:
+ *   put:
+ *     summary: Actualizar un tipo de documento por su código (tdoc)
+ *     tags: [Tipos de Documento]
+ *     parameters:
+ *       - in: path
+ *         name: tdoc
+ *         required: true
+ *         description: Código del tipo de documento.
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/TipoDocumento'
+ *     responses:
+ *       '200':
+ *         description: Éxito. Tipo de documento actualizado con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Tipo de documento actualizado con éxito
+ *       '400':
+ *         description: Campos obligatorios faltantes o mal formato.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: La descripción del tipo de documento es obligatoria
+ *       '404':
+ *         description: Tipo de documento no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Tipo de documento no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al actualizar el tipo de documento
+ */
+
+/**
+ * @swagger
+ * /tipos-documento/{tdoc}:
+ *   delete:
+ *     summary: Eliminar un tipo de documento por su código (tdoc)
+ *     tags: [Tipos de Documento]
+ *     parameters:
+ *       - in: path
+ *         name: tdoc
+ *         required: true
+ *         description: Código del tipo de documento.
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Éxito. Tipo de documento eliminado con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Tipo de documento eliminado con éxito
+ *       '404':
+ *         description: Tipo de documento no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Tipo de documento no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al eliminar el tipo de documento
+ */
+
+/**
+ * @swagger
+ * /tipos-documento:
+ *   delete:
+ *     summary: Eliminar todos los tipos de documento
+ *     tags: [Tipos de Documento]
+ *     responses:
+ *       '200':
+ *         description: Éxito. Todos los tipos de documento han sido eliminados con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Todos los tipos de documento han sido eliminados con éxito
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al eliminar todos los tipos de documento
+ */
+
+
 const express = require('express');
 const router = express.Router();
 const connection = require('../db');

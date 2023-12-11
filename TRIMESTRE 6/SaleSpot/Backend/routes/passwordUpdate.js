@@ -1,3 +1,84 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     PasswordUpdate:
+ *       type: object
+ *       properties:
+ *         current_pass:
+ *           type: string
+ *           description: Contraseña actual del usuario.
+ *         new_pass:
+ *           type: string
+ *           description: Nueva contraseña del usuario.
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Cambio de Contraseña
+ *   description: Operaciones relacionadas con el cambio de contraseña de usuario
+ */
+
+/**
+ * @swagger
+ * /cambio-contrasena/{tdoc}/{id}:
+ *   put:
+ *     summary: Cambiar la contraseña de un usuario
+ *     tags: [Cambio de Contraseña]
+ *     parameters:
+ *       - in: path
+ *         name: tdoc
+ *         required: true
+ *         description: Tipo de documento del usuario.
+ *         schema:
+ *           type: string
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: Identificación del usuario.
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/ChangePassword'
+ *     responses:
+ *       '200':
+ *         description: Éxito. Contraseña cambiada con éxito.
+ *         content:
+ *           application/json:
+ *             example:
+ *               message: Contraseña cambiada con éxito
+ *       '400':
+ *         description: Campos obligatorios faltantes o mal formato.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Los campos de contraseña actual y nueva contraseña son obligatorios
+ *       '401':
+ *         description: Contraseña actual incorrecta.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Contraseña actual incorrecta
+ *       '404':
+ *         description: Usuario no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Usuario no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al cambiar la contraseña del usuario
+ */
+
+
 const express = require('express');
 const router = express.Router();
 const connection = require('../db');

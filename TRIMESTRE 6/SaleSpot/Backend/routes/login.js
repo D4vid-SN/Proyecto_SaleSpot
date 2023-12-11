@@ -1,3 +1,74 @@
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     Login:
+ *       type: object
+ *       properties:
+ *         tdoc:
+ *           type: string
+ *           description: Tipo de documento del usuario.
+ *         id:
+ *           type: string
+ *           description: Identificación del usuario.
+ *         password:
+ *           type: string
+ *           description: Contraseña del usuario.
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Autenticación
+ *   description: Operaciones relacionadas con la autenticación de usuario
+ */
+
+/**
+ * @swagger
+ * /autenticacion:
+ *   post:
+ *     summary: Autenticar un usuario y generar un token JWT
+ *     tags: [Autenticación]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/AuthRequest'
+ *     responses:
+ *       '200':
+ *         description: Éxito. Token JWT generado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/AuthResponse'
+ *       '400':
+ *         description: Campos obligatorios faltantes o mal formato.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Todos los campos obligatorios deben estar presentes
+ *       '401':
+ *         description: Credenciales incorrectas o usuario sin rol asignado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Contraseña incorrecta
+ *       '404':
+ *         description: Usuario no encontrado.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Usuario no encontrado
+ *       '500':
+ *         description: Error del servidor.
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: Error al obtener el usuario
+ */
+
+
 const express = require('express');
 const router = express.Router();
 const connection = require('../db');
