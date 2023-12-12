@@ -22,6 +22,7 @@ import { EliminarProductoComponent } from './eliminar-producto/eliminar-producto
 import { VentasComponent } from './ventas/ventas.component';
 import { RegistrarVentaComponent } from './registrar-ventas/registrar-ventas.component';
 import { ListarVentasComponent } from './listar-ventas/listar-ventas.component';
+import { RegistrarTipoProductoComponent } from './registrar-tipo-producto/registrar-tipo-producto.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ListarVentasComponent } from './listar-ventas/listar-ventas.component';
     EliminarProductoComponent,
     VentasComponent,
     RegistrarVentaComponent,
-    ListarVentasComponent
+    ListarVentasComponent,
+    RegistrarTipoProductoComponent
   ],
   imports: [
     BrowserModule,

@@ -27,7 +27,7 @@ const AgregarUsuariosScreen = () => {
 
   const cargarTiposDocumento = async () => {
     try {
-      const response = await axios.get('http://192.168.20.20:3000/tipoDocumento');
+      const response = await axios.get('http://192.168.1.14:3000/tipoDocumento');
       setTiposDocumento(response.data);
     } catch (error) {
       console.error('Error al cargar tipos de documento:', error);
@@ -36,7 +36,7 @@ const AgregarUsuariosScreen = () => {
 
   const cargarRoles = async () => {
     try {
-      const response = await axios.get('http://192.168.20.20:3000/roles');
+      const response = await axios.get('http://192.168.1.14:3000/roles');
       setRoles(response.data);
     } catch (error) {
       console.error('Error al cargar roles:', error);
@@ -104,7 +104,7 @@ const AgregarUsuariosScreen = () => {
     try {
       setLoading(true);
 
-      const response = await axios.post('http://192.168.20.20:3000/usuarios', {
+      const response = await axios.post('http://192.168.1.14:3000/usuarios', {
         tdoc_user: tdocUser,
         id_user: idUser,
         nombre_1: nombre1,

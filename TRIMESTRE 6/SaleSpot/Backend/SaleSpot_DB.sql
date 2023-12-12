@@ -62,5 +62,3 @@ CREATE TABLE ventas (
   FOREIGN KEY (id_prod) REFERENCES producto(id_prod),
   FOREIGN KEY (tdoc_user, id_user) REFERENCES usuario(tdoc_user, id_user)
 );
-
-

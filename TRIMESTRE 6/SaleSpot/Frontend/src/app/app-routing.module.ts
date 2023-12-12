@@ -17,6 +17,7 @@ import { EliminarProductoComponent } from './eliminar-producto/eliminar-producto
 import { VentasComponent } from './ventas/ventas.component';
 import { RegistrarVentaComponent } from './registrar-ventas/registrar-ventas.component';
 import { ListarVentasComponent } from './listar-ventas/listar-ventas.component';
+import { RegistrarTipoProductoComponent } from './registrar-tipo-producto/registrar-tipo-producto.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: 'ventas', component: VentasComponent},
   { path: 'registrar/ventas', component: RegistrarVentaComponent},
   { path: 'listar/ventas', component: ListarVentasComponent},
+  { path: 'registrar/tipo/producto', component: RegistrarTipoProductoComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' } // Ruta predeterminada
 ];
 

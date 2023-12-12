@@ -1,28 +1,131 @@
-// src/screens/AgregarProductosScreen.js
-import React, { useState, useContext } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
-import { ProductosContext } from './context/ProductosContext';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, Button, Alert,  Switch, StyleSheet } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
+import axios from 'axios';
 
-// Resto del código...
+const AgregarProductosScreen = () => {
+  const [descProd, setDescProd] = useState('');
+  const [tipoProd, setTipoProd] = useState('');
+  const [valorProd, setValorProd] = useState('');
+  const [estadoProd, setEstadoProd] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [errorMensaje, setErrorMensaje] = useState('');
+  const [exitoMensaje, setExitoMensaje] = useState('');
+  const [tiposProducto, setTiposProducto] = useState([]);
 
-const AgregarProductosScreen = ({ navigation }) => {
-  const { agregarProducto } = useContext(ProductosContext);
-  const [nombre, setNombre] = useState('');
+  useEffect(() => {
+    cargarTiposProducto();
+  }, []);
 
-  const handleAgregarProducto = () => {
-    agregarProducto({ nombre });
-    navigation.goBack();
+  const cargarTiposProducto = async () => {
+    try {
+      const response = await axios.get('http://192.168.20.20:3000/tipoProducto');
+      setTiposProducto(response.data);
+    } catch (error) {
+      console.error('Error al cargar tipos de producto:', error);
+      Alert.alert('Error', 'No se pudo cargar la información de tipos de producto');
+    }
+  };
+
+  const validarCamposObligatorios = () => {
+    // Validar que la descripción del producto no esté vacía
+    if (!descProd.trim()) {
+      setErrorMensaje('La descripción del producto es obligatoria.');
+      return false;
+    }
+
+    // Validar que el tipo del producto no esté vacío
+    if (!tipoProd.trim()) {
+      setErrorMensaje('El tipo del producto es obligatorio.');
+      return false;
+    }
+
+    // Validar que el valor del producto sea un número
+    if (isNaN(valorProd)) {
+      setErrorMensaje('El valor del producto debe ser un número.');
+      return false;
+    }
+
+    setErrorMensaje('');
+    return true;
+  };
+
+  const handleAgregarProducto = async () => {
+    if (!validarCamposObligatorios()) {
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const response = await axios.post('http://192.168.1.14:3000/producto', {
+        desc_prod: descProd,
+        tipo_prod: tipoProd,
+        valor_prod: parseFloat(valorProd),
+        estado_prod: estadoProd,
+      });
+
+      setLoading(false);
+      setExitoMensaje('Producto creado exitosamente.');
+      setTimeout(() => setExitoMensaje(''), 5000);
+
+      Alert.alert('Éxito', response.data.message);
+    } catch (error) {
+      setLoading(false);
+
+      if (error.response) {
+        Alert.alert('Error', error.response.data.error);
+      } else if (error.request) {
+        Alert.alert('Error', 'No se recibió respuesta del servidor');
+      } else {
+        Alert.alert('Error', 'Error al realizar la solicitud');
+      }
+    }
   };
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        value={nombre}
-        onChangeText={setNombre}
-        placeholder="Nombre del Producto"
-      />
-      <Button title="Agregar Producto" onPress={handleAgregarProducto} />
+      <Text style={styles.title}>Agregar Producto</Text>
+      <View style={styles.formGroup}>
+        <Text>Descripción del Producto (Obligatorio):</Text>
+        <TextInput
+          style={styles.input}
+          value={descProd}
+          onChangeText={setDescProd}
+        />
+      </View>
+      <View style={styles.formGroup}>
+        <Text>Tipo del Producto (Obligatorio):</Text>
+        <Picker
+          selectedValue={tipoProd}
+          style={styles.input}
+          onValueChange={(itemValue) => setTipoProd(itemValue)}
+        >
+          <Picker.Item label="Selecciona un tipo de producto (Obligatorio)" value="" />
+          {tiposProducto.map((tipo) => (
+            <Picker.Item key={tipo.id_tipo_prod} label={tipo.tipo_prod} value={tipo.id_tipo_prod} />
+          ))}
+        </Picker>
+      </View>
+      <View style={styles.formGroup}>
+        <Text>Valor del Producto (Obligatorio):</Text>
+        <TextInput
+          style={styles.input}
+          value={valorProd.toString()}
+          onChangeText={(text) => setValorProd(text)}
+          keyboardType="numeric"
+        />
+      </View>
+      <View style={styles.formGroup}>
+        <Text>Estado:</Text>
+        <Switch
+          value={estadoProd}
+          onValueChange={(value) => setEstadoProd(value)}
+        />
+      </View>
+      {errorMensaje !== '' && <Text style={styles.errorText}>{errorMensaje}</Text>}
+      {exitoMensaje !== '' && <Text style={styles.exitoText}>{exitoMensaje}</Text>}
+      <Button title="Agregar Producto" onPress={handleAgregarProducto} disabled={loading} />
     </View>
   );
 };
@@ -30,16 +133,36 @@ const AgregarProductosScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
     justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  formGroup: {
+    marginBottom: 10,
+    width: '100%',
   },
   input: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 12,
-    paddingHorizontal: 8,
+    padding: 10,
+    width: '100%',
+  },
+  errorText: {
+    color: 'red',
+    marginBottom: 10,
+  },
+  exitoText: {
+    color: 'green',
+    marginBottom: 10,
   },
 });
 
 export default AgregarProductosScreen;
+
+

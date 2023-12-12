@@ -53,3 +53,14 @@ h2::after {
   transform: translateX(-50%);
   border-radius: 2px;
 }
+
+.row {
+  display: flex;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  flex: 1; /* Hace que todas las cajas tengan el mismo tamaño */
+}

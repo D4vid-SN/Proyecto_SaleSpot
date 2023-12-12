@@ -35,7 +35,9 @@ export class EliminarComponent implements OnInit {
       },
       error => {
         console.error('Error al eliminar el usuario', error);
+        // Agrega lógica para manejar el error y muestra un mensaje al usuario, si es necesario
       }
     );
   }
+  
 }

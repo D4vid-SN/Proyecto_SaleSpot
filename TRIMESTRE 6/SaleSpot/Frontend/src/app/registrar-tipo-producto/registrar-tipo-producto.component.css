@@ -1,0 +1,58 @@
+/* tu-componente.component.css */
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: auto;
+    max-height: auto;
+    margin-top: 50px;
+  }
+  .table-container {
+    border: 1px solid #ccc; /* Color y grosor del borde */
+    border-radius: 5px; /* Bordes redondeados (opcional) */
+    padding: 15px; /* Añade espacio interno al contenedor */
+  }
+  
+  form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  button {
+    margin-top: 10px;
+  }
+
+  .list-group {
+    width: 100%;
+    max-height: 300px; /* Ajusta según sea necesario */
+    overflow-y: auto;
+  }
+  
+  /* Estilos para cada elemento de la lista */
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px; /* Añade un poco de espacio alrededor del contenido */
+  }
+  
+  /* Estilos para los botones */
+  .btn-actualizar,
+  .btn-borrar {
+    margin-left: 10px; /* Espaciado entre los botones */
+  }
+  
+  .btn-actualizar {
+    background-color: #000; /* Negro */
+    color: #fff;
+  }
+  

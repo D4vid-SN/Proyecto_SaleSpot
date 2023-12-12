@@ -93,9 +93,29 @@ export class BackendService {
     return this.http.post(url, nuevaVenta);
   }
 
+  borrarVenta(nVenta: number): Observable<any> {
+    const url = `${this.baseUrl}/ventas/${nVenta}`;
+    return this.http.delete(url);
+  }
+
   obtenerVentas(): Observable<any[]> {
     const url = `${this.baseUrl}/ventas`;
     return this.http.get<any[]>(url);
+  }
+
+  registrarTipoProducto(nuevoTipoProducto: any): Observable<any> {
+    const url = `${this.baseUrl}/tipoProducto`;
+    return this.http.post(url, nuevoTipoProducto);
+  }
+
+  actualizarTipoProducto(id_tipo_prod: number, tipoProductoActualizado: any): Observable<any> {
+    const url = `${this.baseUrl}/tipoProducto/${id_tipo_prod}`;
+    return this.http.put(url, tipoProductoActualizado);
+  }
+
+  eliminarTipoProducto(id_tipo_prod: number): Observable<any> {
+    const url = `${this.baseUrl}/tipoProducto/${id_tipo_prod}`;
+    return this.http.delete(url);
   }
   
 }

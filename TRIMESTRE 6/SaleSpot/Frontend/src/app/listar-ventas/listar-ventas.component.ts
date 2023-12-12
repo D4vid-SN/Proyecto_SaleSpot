@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackendService } from '../backend.service'; // Reemplaza 'path-to-your-service' con la ruta correcta
+import { BackendService } from '../backend.service';
 
 @Component({
   selector: 'app-listar-ventas',
@@ -12,31 +12,46 @@ export class ListarVentasComponent implements OnInit {
   constructor(private backendService: BackendService) {}
 
   ngOnInit(): void {
-    this.obtenerVentasConTipoProducto();
+    this.obtenerVentasConProducto();
   }
 
-  obtenerVentasConTipoProducto(): void {
+  obtenerVentasConProducto(): void {
     // Obtener todas las ventas
     this.backendService.obtenerVentas().subscribe(
       (ventas: any[]) => {
-        // Para cada venta, obtener el nombre del tipo de producto
+        // Para cada venta, obtener la información del producto
         ventas.forEach(venta => {
-          this.backendService.obtenerTipoProductoPorId(venta.id_tipo_prod).subscribe(
-            (tipoProducto: any) => {
-              // Asignar el nombre del tipo de producto a la venta
-              venta.tipoProductoNombre = tipoProducto ? tipoProducto.tipo_prod : 'Desconocido';
+          this.backendService.obtenerProductoPorId(venta.id_prod).subscribe(
+            (producto: any) => {
+              // Asignar el nombre del producto a la venta
+              venta.productoNombre = producto ? producto.nombre_prod : 'Desconocido';
             },
             (error) => {
-              console.error('Error al obtener el tipo de producto:', error);
+              console.error('Error al obtener el producto:', error);
             }
           );
         });
 
-        // Asignar las ventas con nombres de tipo de producto al arreglo
+        // Asignar las ventas con nombres de productos al arreglo
         this.ventas = ventas;
       },
       (error) => {
         console.error('Error al obtener las ventas:', error);
+      }
+    );
+  }
+
+  borrarVenta(nVenta: number) {
+    // Lógica para borrar la venta con el número de venta nVenta
+    // Debes implementar esta lógica en tu servicio y manejar la actualización de la lista de ventas
+    this.backendService.borrarVenta(nVenta).subscribe(
+      (response) => {
+        console.log('Venta borrada con éxito', response);
+        // Actualizar la lista de ventas después de borrar
+        this.obtenerVentasConProducto(); // Cambiado a obtenerVentasConProducto
+      },
+      (error) => {
+        console.error('Error al borrar la venta', error);
       }
     );
   }

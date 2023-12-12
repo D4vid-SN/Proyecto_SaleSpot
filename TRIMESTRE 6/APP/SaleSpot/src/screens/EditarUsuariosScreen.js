@@ -25,7 +25,7 @@ const EditarUsuariosScreen = ({ route }) => {
 
   const cargarUsuario = async () => {
     try {
-      const response = await axios.get(`http://192.168.20.20:3000/usuarios/${tdoc_user}/${id_user}`);
+      const response = await axios.get(`http://192.168.1.14:3000/usuarios/${tdoc_user}/${id_user}`);
       const usuario = response.data;
       setNombre1(usuario.nombre_1);
       setNombre2(usuario.nombre_2 || '');
@@ -42,7 +42,7 @@ const EditarUsuariosScreen = ({ route }) => {
 
   const cargarRoles = async () => {
     try {
-      const response = await axios.get('http://192.168.20.20:3000/roles');
+      const response = await axios.get('http://192.168.1.14:3000/roles');
       setRoles(response.data);
     } catch (error) {
       console.error('Error al cargar roles:', error);
@@ -99,7 +99,7 @@ const EditarUsuariosScreen = ({ route }) => {
     try {
       setLoading(true);
 
-      const response = await axios.put(`http://192.168.20.20:3000/usuarios/${tdoc_user}/${id_user}`, {
+      const response = await axios.put(`http://192.168.1.14:3000/usuarios/${tdoc_user}/${id_user}`, {
         nombre_1: nombre1,
         nombre_2: nombre2,
         apellido_1: apellido1,

@@ -11,7 +11,7 @@ const EliminarUsuariosScreen = ({ route, navigation }) => {
     try {
       setLoading(true);
 
-      const response = await axios.delete(`http://192.168.20.20:3000/usuarios/${tdoc_user}/${id_user}`);
+      const response = await axios.delete(`http://192.168.1.14:3000/usuarios/${tdoc_user}/${id_user}`);
 
       setLoading(false);
       Alert.alert('Éxito', response.data.message);
