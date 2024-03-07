@@ -1,0 +1,42 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Usuarios",
+    "dateExported": "2023-12-07T13:31:15.883Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "88637543-c6d5-4ef9-a3b3-3915bd5c6c88",
+            "colId": "83ed0e80-3a79-411b-8569-406c344fa495",
+            "containerId": "",
+            "name": "Agregar usuario",
+            "url": "http://localhost:3000/usuarios",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-03T20:06:27.468Z",
+            "modified": "2023-12-07T12:31:08.143Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"tdoc_user\": \"CC\",\r\n  \"id_user\": 1,\r\n  \"nombre_1\": \"juan\",\r\n  \"nombre_2\": \"\",\r\n  \"apellido_1\": \"perez\",\r\n  \"apellido_2\": \"lopez\",\r\n  \"email\": \"juan.perez@example.com\",\r\n  \"rol\": 1,\r\n  \"estado\": true\r\n}\r\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "10497360-bb5e-4ec4-9ae3-889d7dc206e3",
+            "colId": "83ed0e80-3a79-411b-8569-406c344fa495",
+            "containerId": "",
+            "name": "consultar usuario",
+            "url": "http://localhost:3000/usuarios",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-12-07T12:06:33.303Z",
+            "modified": "2023-12-07T12:06:42.771Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

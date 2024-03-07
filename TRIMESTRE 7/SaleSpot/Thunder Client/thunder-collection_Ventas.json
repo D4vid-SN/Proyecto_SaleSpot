@@ -1,0 +1,42 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Ventas",
+    "dateExported": "2023-12-07T13:31:20.770Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "d2cd3803-603c-4769-9d7b-068ca6c5b43e",
+            "colId": "2a7559fc-68a0-41fd-b231-14bfe630e1ba",
+            "containerId": "",
+            "name": "Agregar venta",
+            "url": "http://localhost:3000/ventas",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-04T03:04:05.434Z",
+            "modified": "2023-12-07T12:33:13.127Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"fecha_venta\": \"2023-12-03\",\n  \"subtotal\": 100.50,\n  \"iva\": 15.75,\n  \"total_venta\": 116.25,\n  \"id_prod\": 1,\n  \"tdoc_user\": \"CC\",\n  \"id_user\": 1,\n  \"cant_prod\": 1,\n  \"valor_prod_cant\": 50.25\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1c429a89-33da-4db9-b1e3-a47f0fc47bfa",
+            "colId": "2a7559fc-68a0-41fd-b231-14bfe630e1ba",
+            "containerId": "",
+            "name": "Consultar Ventas",
+            "url": "http://localhost:3000/ventas/2",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-12-07T12:34:43.280Z",
+            "modified": "2023-12-07T12:35:39.332Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

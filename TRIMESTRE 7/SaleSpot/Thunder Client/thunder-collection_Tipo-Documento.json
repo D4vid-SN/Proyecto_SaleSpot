@@ -1,0 +1,75 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Tipo-Documento",
+    "dateExported": "2023-12-07T13:31:07.314Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "587c855e-2be4-439a-94a4-7294d384cbf0",
+            "colId": "1ca495fe-1f17-42b0-8114-046521e91211",
+            "containerId": "",
+            "name": "Agregar Tipo-Documemto",
+            "url": "http://localhost:3000/tipoDocumento",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-12-03T20:04:26.700Z",
+            "modified": "2023-12-03T20:04:55.131Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"tdoc\": \"CC\",\n  \"desc_tdoc\": \"Cedula de ciudadania\"\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "237e88dc-b2f4-4e24-a645-d524340e9333",
+            "colId": "1ca495fe-1f17-42b0-8114-046521e91211",
+            "containerId": "",
+            "name": "Consultar Tipo-Documemto ",
+            "url": "http://localhost:3000/tipoDocumento",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-12-03T20:04:26.701Z",
+            "modified": "2023-12-03T20:04:26.701Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "ba615e41-1948-41fd-ab2a-5b3e953abb07",
+            "colId": "1ca495fe-1f17-42b0-8114-046521e91211",
+            "containerId": "",
+            "name": "Actualizar Tipo-Documemto ",
+            "url": "http://localhost:3000/tipoDocumento/TI",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-12-03T20:04:26.702Z",
+            "modified": "2023-12-03T20:04:26.702Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\r\n  \"desc_tdoc\": \"Tarjet\"\r\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6c177191-68cb-44b5-bc46-dd261b689cb6",
+            "colId": "1ca495fe-1f17-42b0-8114-046521e91211",
+            "containerId": "",
+            "name": "Eliminar Tipo-Documemto ",
+            "url": "http://localhost:3000/tipoDocumento",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-12-03T20:04:26.703Z",
+            "modified": "2023-12-03T20:04:26.703Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

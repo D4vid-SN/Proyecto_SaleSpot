@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Registro de Venta</h2>
+        <div *ngIf="mensajeExito" class="alert alert-success">{{ mensajeExito }}</div>
+        <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
+
+        <form (ngSubmit)="registrarVenta()">
+          <div class="form-group">
+            <label for="fecha_venta">Fecha de Venta<span class="obligatorio"></span>:</label>
+            <input type="date" class="form-control" id="fecha_venta" name="fecha_venta" [(ngModel)]="nuevaVenta.fecha_venta" required>
+          </div>
+
+          <div class="form-row">
+            <!-- Usuario -->
+            <div class="form-group col-md-6">
+              <label for="tdoc_user">Tipo de Documento del Usuario<span class="obligatorio"></span>:</label>
+              <select class="form-control" id="tdoc_user" name="tdoc_user" [(ngModel)]="nuevaVenta.tdoc_user" required>
+                <option *ngFor="let tipoDoc of tiposDocumento" [value]="tipoDoc.tdoc">{{ tipoDoc.desc_tdoc }}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="id_user">ID del Usuario<span class="obligatorio"></span>:</label>
+              <input type="number" class="form-control" id="id_user" name="id_user" [(ngModel)]="nuevaVenta.id_user" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+          <!-- Producto -->
+          <div class="form-group col-md-6">
+            <label for="id_prod">Producto<span class="obligatorio"></span>:</label>
+            <select class="form-control" id="id_prod" name="id_prod" [(ngModel)]="selectedProductId" (change)="cargarDescripcionTipoProducto()" required>
+              <option *ngFor="let producto of productos" [value]="producto.id_prod">{{ producto.desc_prod || 'Seleccione un tipo' }}</option>
+            </select>
+          </div>
+
+            <div class="form-group col-md-6">
+              <label for="cant_prod">Cantidad de Productos<span class="obligatorio"></span>:</label>
+              <input type="number" class="form-control" id="cant_prod" name="cant_prod" [(ngModel)]="nuevaVenta.cant_prod" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <!-- Subtotal e IVA -->
+            <div class="form-group col-md-6">
+              <label for="subtotal">Subtotal<span class="obligatorio"></span>:</label>
+              <input type="number" class="form-control" id="subtotal" name="subtotal" [(ngModel)]="nuevaVenta.subtotal" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="iva">IVA<span class="obligatorio"></span>:</label>
+              <input type="number" class="form-control" id="iva" name="iva" [(ngModel)]="nuevaVenta.iva" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="total_venta">Total de Venta<span class="obligatorio"></span>:</label>
+            <input type="number" class="form-control" id="total_venta" name="total_venta" [(ngModel)]="nuevaVenta.total_venta" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" >Registrar Venta</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  
