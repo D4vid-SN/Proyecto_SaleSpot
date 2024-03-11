@@ -23,7 +23,7 @@
       <h2 class="text-center">Administra las Ventas de SaleSpot</h2>
     </div>
   </div>
-  <div class="row">
+  <div class="row" id="ventas">
     <div class="col-md-3" *ngFor="let venta of ventas">
       <div class="profile-card">
         <h4>Venta #{{ venta.n_venta }}</h4>
@@ -34,17 +34,17 @@
         <p>Producto: {{ venta.productoNombre || 'Desconocido' }}</p>
         <p>Cantidad de Productos: {{ venta.cant_prod }}</p>
 
-        <!-- Agrega un botón para borrar -->
         <button class="btn btn-danger" (click)="borrarVenta(venta.n_venta)">Borrar</button>
       </div>
     </div>
   </div>
+
+  <div>
+    <button class="btn btn-secondary mt-3" (click)="GenerarReporte()">Generar reporte</button>
+  </div>
+
   <!-- Muestra el mensaje si no hay ventas registradas -->
   <div *ngIf="ventas.length === 0" class="text-center mt-3">
     <p class="text-danger">No hay ventas registradas.</p>
   </div>
 </div>
-
-
-
- 
