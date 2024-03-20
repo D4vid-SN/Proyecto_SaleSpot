@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title text-center">Registro de Producto</h2>
+          <div *ngIf="mensajeExito" class="alert alert-success">{{ mensajeExito }}</div>
+          <div *ngIf="mensajeError" class="alert alert-danger">{{ mensajeError }}</div>
+
+          <!-- Formulario de registro de producto -->
+          <form (ngSubmit)="registrarProducto()">
+            <div class="form-group">
+              <label for="desc_prod">Descripción del Producto<span class="obligatorio"></span>:</label>
+              <input type="text" class="form-control" id="desc_prod" name="desc_prod" [(ngModel)]="nuevoProducto.desc_prod" required>
+            </div>
+            <div class="form-group">
+              <label for="tipo_prod">Tipo de Producto<span class="obligatorio"></span>:</label>
+              <select class="form-control" id="tipo_prod" name="tipo_prod" [(ngModel)]="nuevoProducto.tipo_prod" required>
+                <option *ngFor="let tipo of tiposProducto" [value]="tipo.id_tipo_prod">{{ tipo.tipo_prod }}</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="valor_prod">Valor del Producto<span class="obligatorio"></span>:</label>
+              <input type="number" class="form-control" id="valor_prod" name="valor_prod" [(ngModel)]="nuevoProducto.valor_prod" required>
+            </div>
+            <div class="form-group">
+              <label for="estado_prod">Estado del Producto<span class="obligatorio"></span>:</label>
+              <select class="form-control" id="estado_prod" name="estado_prod" [(ngModel)]="nuevoProducto.estado_prod" required>
+                <option [ngValue]="true" [selected]="nuevoProducto.estado_prod === true">Stock</option>
+                <option [ngValue]="false" [selected]="nuevoProducto.estado_prod === false">Sin Stock</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Registrar Producto</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  

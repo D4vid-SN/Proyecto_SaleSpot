@@ -1,0 +1,25 @@
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .center-form .col-md-6 {
+    max-width: 400px; /* Ajusta según sea necesario */
+    width: 100%;
+  }
+
+  .obligatorio::after {
+    content: '*';
+    color: red; /* Cambia el color a rojo u otro color que desees */
+    margin-left: 2px; /* Añade un espacio entre el campo y el asterisco */
+  }
+
+  /* Estilos personalizados para el efecto hover */
+.btn-primary:hover {
+    background-color: #6c757d; /* Cambia el color de fondo al pasar el mouse */
+    border-color: #6c757d; /* Cambia el color del borde al pasar el mouse */
+    color: #fff; /* Cambia el color del texto al pasar el mouse */
+  }
+  
