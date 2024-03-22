@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Administra los perfiles de SaleSpot</h2>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngIf="usuarios.length > 0; else noUsuarios">
+      <!-- Cada perfil se coloca en una columna de tamaño 3 para asegurarse de que haya 4 perfiles por fila -->
+      <div class="col-md-3" *ngFor="let usuario of usuarios">
+        <div class="profile-card">
+          <h4>Perfil</h4>
+          <h5>Nombre: {{ usuario.nombre_1 }} {{ usuario.apellido_1 }}</h5>
+          <p>Rol: {{ usuario.desc_rol }}</p>
+          <p>Estado: {{ usuario.estado ? 'Activo' : 'Inactivo' }}</p>
+          <div class="btn-group" role="group">
+            <a [routerLink]="['/editar', usuario.tdoc_user, usuario.id_user]" class="btn btn-primary btn-sm">Editar</a>
+            <a [routerLink]="['/eliminar', usuario.tdoc_user, usuario.id_user]" class="btn btn-danger btn-sm">Eliminar</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noUsuarios>
+      <div class="col-md-12 text-center">
+        <h3>No hay perfiles registrados.</h3>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
+

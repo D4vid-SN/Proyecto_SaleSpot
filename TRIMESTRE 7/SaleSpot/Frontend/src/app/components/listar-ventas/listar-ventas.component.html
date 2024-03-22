@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+  <!-- Cabecera y filtro por fecha -->
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center">Administra las Ventas de SaleSpot</h2>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-md-6 offset-md-3">
+      <!-- Filtro por fecha -->
+      <div class="input-group">
+        <input type="date" class="form-control" [(ngModel)]="fechaFiltro">
+        <div class="input-group-append">
+          <button class="btn btn-primary" type="button" (click)="obtenerVentasConProducto()">Filtrar</button>
+          <!-- Botón para generar el reporte -->
+          <button class="btn btn-secondary" (click)="GenerarReporte()">Generar reporte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-3 border" id="ventas" style="max-height: 600px; overflow-y: auto;">
+    <div class="col-md-4" *ngFor="let venta of ventas">
+        <div class="profile-card">
+            <h4>Venta #{{ venta.n_venta }}</h4>
+            <!-- Información de la venta -->
+            <p>Fecha: {{ venta.fecha_venta | date:'shortDate' }}</p>
+            <p>Subtotal: {{ venta.subtotal | currency:'COP':'symbol':'1.2-2' }}</p>
+            <p>IVA: {{ venta.iva | currency:'COP':'symbol':'1.2-2' }}</p>
+            <p>Total: {{ venta.total_venta | currency:'COP':'symbol':'1.2-2' }}</p>
+            <p>Producto: {{ venta.productoNombre || 'Desconocido' }}</p>
+            <p>Cantidad de Productos: {{ venta.cant_prod }}</p>
+            <!-- Botón para borrar la venta -->
+            <button class="btn btn-danger" (click)="openConfirmationDialog(venta.n_venta)">Borrar</button>
+        </div>
+    </div>
+    <!-- Mensaje si no hay ventas registradas -->
+    <div class="col-md-12" *ngIf="ventas.length === 0">
+        <div class="text-center mt-3">
+            <p class="text-danger">No hay ventas registradas.</p>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="fondo">
+  <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-center">Iniciar Sesión</h2>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="login()" class="center-form">
+            <div class="form-group">
+              <label for="tdoc">Tipo de Documento<span class="obligatorio">*</span>:</label>
+              <select id="tdoc" [(ngModel)]="tdoc" name="tdoc" class="form-control" required>
+                <option value="" disabled selected>Selecciona un tipo de documento</option>
+                <option *ngFor="let tipoDocumento of tiposDocumento" [value]="tipoDocumento.tdoc">{{ tipoDocumento.desc_tdoc }}</option>
+              </select>
+            </div>
+      
+            <div class="form-group">
+              <label for="id">ID<span class="obligatorio">*</span>:</label>
+              <input type="number" id="id" [(ngModel)]="id" name="id" class="form-control" required>
+            </div>
+      
+            <div class="form-group">
+              <label for="password">Contraseña<span class="obligatorio">*</span>:</label>
+              <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+            </div>
+      
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+            </div>
+          </form>
+
+          <p class="text-danger text-center" *ngIf="errorMessage">{{ errorMessage }}</p>
+        </div>
+      </div>
+      <button class="btn btn-secondary btn-block mt-3" routerLink="/home">Regresar</button>
+    </div>
+  </div>
+</div>

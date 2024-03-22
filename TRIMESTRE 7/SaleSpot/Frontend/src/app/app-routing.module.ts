@@ -1,25 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { MenuComponent } from './menu/menu.component';
-import { LogoutComponent } from './logout/logout.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { RegistroComponent } from './registro/registro.component';
-import { ConsultarComponent } from './consultar/consultar.component';
-import { EditarComponent } from './editar/editar.component';
-import { EliminarComponent } from './eliminar/eliminar.component';
-import { RegistrarProductoComponent } from './registrar-producto/registrar-producto.component';
-import { ProductosComponent } from './productos/productos.component';
-import { ConsultarProductoComponent } from './consultar-producto/consultar-producto.component';
-import { EditarProductoComponent } from './editar-producto/editar-producto.component';
-import { EliminarProductoComponent } from './eliminar-producto/eliminar-producto.component';
-import { VentasComponent } from './ventas/ventas.component';
-import { RegistrarVentaComponent } from './registrar-ventas/registrar-ventas.component';
-import { ListarVentasComponent } from './listar-ventas/listar-ventas.component';
-import { RegistrarTipoProductoComponent } from './registrar-tipo-producto/registrar-tipo-producto.component';
-import { AuthGuard } from './auth.guard';
-import { AdminGuard } from './admin.guard';
+import { LoginComponent } from '../app/components//login/login.component';
+import { HomeComponent } from '../app/components//home/home.component';
+import { MenuComponent } from '../app/components//menu/menu.component';
+import { LogoutComponent } from '../app/components//logout/logout.component';
+import { UsuariosComponent } from '../app/components//usuarios/usuarios.component';
+import { RegistroComponent } from '../app/components//registro/registro.component';
+import { ConsultarComponent } from '../app/components//consultar/consultar.component';
+import { EditarComponent } from '../app/components//editar/editar.component';
+import { EliminarComponent } from '../app/components//eliminar/eliminar.component';
+import { RegistrarProductoComponent } from '../app/components//registrar-producto/registrar-producto.component';
+import { ProductosComponent } from '../app/components//productos/productos.component';
+import { ConsultarProductoComponent } from '../app/components//consultar-producto/consultar-producto.component';
+import { EditarProductoComponent } from '../app/components//editar-producto/editar-producto.component';
+import { EliminarProductoComponent } from '../app/components//eliminar-producto/eliminar-producto.component';
+import { VentasComponent } from '../app/components//ventas/ventas.component';
+import { RegistrarVentaComponent } from '../app/components//registrar-ventas/registrar-ventas.component';
+import { ListarVentasComponent } from '../app/components//listar-ventas/listar-ventas.component';
+import { RegistrarTipoProductoComponent } from '../app/components//registrar-tipo-producto/registrar-tipo-producto.component';
+import { AuthGuard } from './auth/auth.guard';
+import { AdminGuard } from './auth/admin.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },

@@ -1,0 +1,47 @@
+.fondo {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-image: url(../../../assets/images/fondo.png); 
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  width: auto; 
+  height: auto; 
+  max-width: 90vw;
+  max-height: 85vh; 
+  overflow: auto;
+}
+
+
+.logo-img {
+  width: 150px; /* Ajustar tamaño del logo */
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 50px; /* Espacio inferior */
+}
+
+.paragraph-container {
+  margin-bottom: 20px; /* Espacio inferior */
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+@media only screen and (max-width: 768px) {
+  .paragraph-container {
+    display: none;
+  }
+}
+
+

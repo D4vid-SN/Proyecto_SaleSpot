@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center menu-title">Administra tu plataforma con facilidad</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4" *ngIf="isAdmin()">
+            <div class="menu-box" routerLink="/usuarios">
+                <h4>Usuarios</h4>
+                <p>Administra los perfiles de usuarios y configuraciones.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="menu-box" routerLink="/ventas">
+                <h4>Ventas</h4>
+                <p>Administra y registra con facilidad tus ventas.</p>
+            </div>
+        </div>
+        <div class="col-md-4" routerLink="/productos">
+            <div class="menu-box">
+                <h4>Productos</h4>
+                <p>Administra tus productos y catálogos.</p>
+            </div>
+        </div>
+    </div>
+</div>
